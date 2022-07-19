@@ -38,18 +38,29 @@ systemctl start postgresql
 
 Step 5: Create a PostgreSQL User and Database
 ```
-psql postgres
+sudo -u postgres psql
 ```
 After running the command above, you are in the postgresql command prompt. You can create a user and database from here with these commands:
 ```
 CREATE USER <username> WITH PASSWORD '<password>';
 CREATE DATABASE <databaseName> OWNER <username>;
 ```
-Remember you <username>, <password> and <databaseName> for your database, they are important and will be used later in this turtorial.
+
+---
+
+Remember your <\username>, <\password> and <\databaseName> for your database, they are important and will be used later in this turtorial.
+
+Use "\du" to list all roles and "\list" to list all databases to make sure that your database and user were added.
+```
+\du
+\list
+```
+
+---
 
 Step 6: Exit the Terminal
 ```
-/q
+\q
 ```
 OR Ctrl + D
 
