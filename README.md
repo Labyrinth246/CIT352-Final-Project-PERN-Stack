@@ -226,23 +226,55 @@ The code above requires the pg library to make connecting to your server easy. Y
 
 Save and quit your database.js file.
 
+![database.js file](./pictures/Part3_Part1_Step1.png)
+
 Step 2: Add the Import the pool Module in your index.js file. Open your index.js file and add this code after your port constant.
 ```
 const pool = require("./database");
 ```
 
-SCREENSHOT
+![index.js file addition](./pictures/Part3_Part1_Step2.png)
 
-Congratulations! You have officially connected your database to your node.js server. However, there is not much that you can do until you add routes between your database and your server so that you can run basic CRUD tests like CREATE, GET, UPDATE, and DELETE. This next section of the turtorial will show how to add those routes and how to use them.
+Congratulations! You have officially connected your database to your node.js server.
 
 
-### Adding Routes between our Database and Server
+## Part 4: Accessing Database Through Your Server
+
+This is just a breif explanation on how to use the connection to your database.
+
+There are many ways to go back and forth to your database, but in order to access for create any data, you will need a "app.post()" line in your index.js. You also would need to create tables for your need in the postgresql command line.
+
+An example of this could be if you wanted to insert user information from a local json file on your web server at the "http://localhost:3000/signup" url.
+
+Your new lines in your index.js filw would look something like this:
+```
+app.post('/signup', async (request, response) => {
+    const { userName } = request.body;
+    const newUsername = await pool.query("INSERT INTO userInfo (userName) VALUES($1)", [userName]);
+    res.json(newUsername);
+});
+```
+
+Your json file with the user information would look something like this:
+```
+{
+    "userName": "user2"
+}
+```
+
+Now all you would need to do is write a curl script and run it with the appropriate url and json file. It might look something like this:
+```
+curl -d "@data.json" -X POST -H "Content-Type:application/json" http://localhost:3000/signup
+```
+
+When you run your curl script, the username "user2" should be added to your userInfo table.
 
 ---
 
-Follow these insctructions in the command line of your Fedora Linux machine to create routes between your database and node.js server:
+This is just a small add-on to this turtorial, but there are many other turtorials that will show you how to correctly add routes between your server and database, so that you can query your database.
 
 ---
 
+## Video of Fedora Linux Virtual Machine Testing Server Startup
 
-
+![VMServer browser working](./pictures/VMServerWorking.mp4)
