@@ -16,9 +16,9 @@ Follow these instructions in the command line of your fedora Linux machine:
 
 ---
 
-Step 1: Install PostgreSQL Using dnf
+Step 1: Install PostgreSQL Using dnf and Enter "Y" when Prompted
 ```
-dnf install postgresql-server postgre-contrib
+dnf install postgresql-server
 ```
 
 Step 2: Set PostgreSQL to Start at Boot Time
@@ -26,17 +26,12 @@ Step 2: Set PostgreSQL to Start at Boot Time
 systmectl enable postgresql
 ```
 
-Step 3: Initialize the Database
-```
-postgresql-setup --initdb --unit postgresql
-```
-
-Step 4: Reboot System or Start PostgreSQL Manually Using:
+Step 3: Reboot System or Start PostgreSQL Manually Using:
 ```
 systemctl start postgresql
 ```
 
-Step 5: Create a PostgreSQL User and Database
+Step 4: Create a PostgreSQL User and Database
 ```
 psql postgres
 ```
@@ -47,7 +42,7 @@ CREATE DATABASE <databaseName> OWNER <username>;
 ```
 Remember you <username>, <password> and <databaseName> for your database, they are important and will be used later in this turtorial.
 
-Step 6: Exit the Terminal
+Step 5: Exit the Terminal
 ```
 /q
 ```
