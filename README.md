@@ -26,7 +26,7 @@ Step 2: Set PostgreSQL to Start at Boot Time
 systmectl enable postgresql
 ```
 
-    ![Postgresql bootime](./pictures/Part1_Part1_Step2.png)
+![Postgresql bootime](./pictures/Part1_Part1_Step2.png)
 
 Step 3: Initialize the Database
 ```
