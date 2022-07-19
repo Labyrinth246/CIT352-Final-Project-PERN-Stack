@@ -1,12 +1,12 @@
 # Setting up a PERN Stack on Fedora Linux
 
+---
+
+Make sure that you have administrator priviledges in your machine. If you do not have that access use "sudo" in front of these commands.
+
+---
+
 ## Part 1: Installations
-
----
-
-Make sure that you have administrator priviledges in your machine. If you do not have that access use "sudo" in front of some of these commands.
-
----
 
 ### PostgreSQL Installation/Initial Database Setup
 Follow these instructions in the command line of your fedora Linux machine:
@@ -72,6 +72,7 @@ Step 3: Reboot System or Start Nodejs Maually with
 systemctl start nodejs
 ```
 
+## Part 2: Node.js Server Setup
 
 ### Express Installation/Web Server Setup
 Follow these insctructions in the command line of your Fedora Linux machine to install and set up a basic web server using express:
@@ -182,6 +183,7 @@ Step 4: Use Systemctl to Start Your Process on Boot time.
 systemctl start pm2-<currentuser>
 ```
 
+## Part 3: Connecting Postgres Database
 
 ### Connecting the Postgresql Database to Our Node.js Server
 Follow these insctructions in the command line of your Fedora Linux machine to connect our postgres database to our node.js server so that we can access our database in our server:
