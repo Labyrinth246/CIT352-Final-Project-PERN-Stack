@@ -21,6 +21,8 @@ Step 1: Install PostgreSQL Using dnf and Enter "Y" when Prompted
 dnf install postgresql-server
 ```
 
+![postgresql install](./pictures/Part1_Step1.png)
+
 Step 2: Set PostgreSQL to Start at Boot Time
 ```
 systmectl enable postgresql
@@ -32,6 +34,7 @@ Step 3: Initialize the Database
 ```
 postgresql-setup --initdb --unit postgresql
 ```
+![Inizialize database](./pictures/Part1_Part1_Step3.png)
 
 Step 4: Reboot System or Start PostgreSQL Manually Using:
 ```
@@ -66,6 +69,8 @@ Step 6: Exit the Terminal
 ```
 OR Ctrl + D
 
+![database creation](/pictures/Part1_Part1_Step6.png)
+
 You can now access you user's database at any time with this command:
 ```
 psql <databaseName>
@@ -84,6 +89,8 @@ Step 1: Install Node.js Using dnf and Enter "Y" when Prompted
 ```
 dnf install nodejs
 ```
+
+![install nodejs](./pictures/Part1_Part2_Step1.png)
 
 ## Part 2: Node.js Server Setup
 
@@ -106,10 +113,13 @@ Step 2: Create a package.json file.
 npm init -y
 ```
 
+![package.json file](./pictures/Part2_Part1_Step2.png)
+
 Step 3: Install Express, PG, and Cors using npm
 ```
 npm i express pg body-parser
 ```
+![install express](./pictures/Part2_Part1_Step3.png)
 
 Step 4: Create a js file and add code. In this turtorial, I will be using vim, but use whatever text editing software you are comfortable with.
 ```
@@ -145,17 +155,19 @@ app.listen(port, async() => {
 ```
 Finally, save and quit your index.js file. In normal mode, type ":wq" and hit enter to save any changes and quit the text editor.
 
+![all of index.js file](./pictures/Part2_Part1_Step6.png)
+
 Step 7: Now that you have saved the index.js file you can run the server with the command:
 ```
 node index.js
 ```
 The output should look like this:
 
-SCREENSHOT
+![node index.js output](./pictures/Part2_Part1_Step7.png)
 
 Step 8: Open your browser and in the search bar type "http://localhost:3000" and hit enter. This is what you should see in you browser:
 
-SCREENSHOT
+![browser test](./pictures/Part2_Part1_Step8.png)
 
 If this is what you see, congratulations! You have made a simple web server using express and node.js! Stop your server by going to your terminal where your server is running and pressing "Ctrl + C".
 
@@ -178,7 +190,7 @@ command and select a text editor if you haven't already edited your crontab file
 ```
 It will look like this.
 
-SCREENSHOT
+![crontab](./pictures/crontab.png)
 
 Save and quit your text editor
 
