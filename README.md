@@ -26,6 +26,8 @@ Step 2: Set PostgreSQL to Start at Boot Time
 systmectl enable postgresql
 ```
 
+![Postgresql bootime](/PERN Stack Pics/Part1_Part1_Step2.png)
+
 Step 3: Initialize the Database
 ```
 postgresql-setup --initdb --unit postgresql
@@ -48,7 +50,7 @@ CREATE DATABASE <databaseName> OWNER <username>;
 
 ---
 
-Remember your <\username>, <\password> and <\databaseName> for your database, they are important and will be used later in this turtorial.
+Remember your username, password and databaseName for your database, they are important and will be used later in this turtorial.
 
 Use "\du" to list all roles and "\list" to list all databases to make sure that your database and user were added.
 ```
@@ -78,19 +80,9 @@ Follow these instructions in the command line of your fedora Linux machine:
 
 ---
 
-Step 1: Install Node.js Using dnf
+Step 1: Install Node.js Using dnf and Enter "Y" when Prompted
 ```
 dnf install nodejs
-```
-
-Step 2: Set Node.js to Start at Boot Time
-```
-systemctl enable nodejs
-```
-
-Step 3: Reboot System or Start Nodejs Maually with
-```
-systemctl start nodejs
 ```
 
 ## Part 2: Node.js Server Setup
@@ -109,25 +101,21 @@ mkdir <projectname>
 cd <projectname>
 ```
 
-Step 2: Create a package.json file. Accept all default options by pressing the enter key.
+Step 2: Create a package.json file.
 ```
 npm init -y
 ```
 
 Step 3: Install Express, PG, and Cors using npm
 ```
-npm i express pg cors
+npm i express pg body-parser
 ```
 
 Step 4: Create a js file and add code. In this turtorial, I will be using vim, but use whatever text editing software you are comfortable with.
 ```
 vim index.js
 ```
-You will use the express module and also the body-parser module, which is a built in module. However. if it is not installed or if you do not know, you can run 
-```
-npm install body-parser
-```
-to check. You also want to set your port variable so that you know where to look for your web server. Now copy the code below into your index.js file.
+You will use the express module and also the body-parser module. You also want to set your port variable so that you know where to look for your web server. Now copy the code below into your index.js file.
 ```
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -142,26 +130,22 @@ app.use(
 );
 ```
 
-Step 5: Create a GET request. You will want to add this code block so that you tell a route to look for a get request and return the information you give it so that you can see that the web page is working.
+Step 5: Create a GET request. You will want to add this code block to your index.js file so that you tell a route to look for a get request and return the information you give it so that you can see that the web page is working.
 ```
-app.get('/', (request, response) => {
-  response.send({"It is working!"})
+app.get('/',(request, response)=>{
+  response.send("It is working!")
 });
 ```
 
 Step 6: Have set express to listen to the port that you set in the beginning of the file.
 ```
 app.listen(port, async() => {
-  console.log('Listening onport: ',port);
+  console.log('Listening on port: ',port);
 });
 ```
 Finally, save and quit your index.js file. In normal mode, type ":wq" and hit enter to save any changes and quit the text editor.
 
-Step 7: Now that you have saved the index.js file you can run the server by running:
-```
-npm start
-```
-OR
+Step 7: Now that you have saved the index.js file you can run the server with the command:
 ```
 node index.js
 ```
@@ -184,35 +168,19 @@ Follow these insctructions in the command line of your Fedora Linux machine to s
 
 ---
 
-Step 1: Install PM2. PM2 is a node.js process manager.
+Step 1: Add "node index.js" command to Crontab. Start by using the
 ```
-npm install pm2@latest -g
+crontab -e
 ```
-
-Step 2: Start your Server with PM2 to add it to the Process List.
+command and select a text editor if you haven't already edited your crontab file. Once you have selected an editor add this new line in your crontab file.
 ```
-pm2 start index.js
+@reboot node <index.jsFullPath> &
 ```
-
-Step 3: Set PM2 to Start on Boot Time
-```
-pm2 startup systemd
-```
-Copy the last line of the output of this command and run it in your terminal to set PM2 to start at boot time. Replace <currentuser> with whatever user you are.
-```
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u <currentuser> --hp /home/<currentuser>
-```
-Save the Proccess List
-```
-pm2 save
-```
+It will look like this.
 
 SCREENSHOT
 
-Step 4: Use Systemctl to Start Your Process on Boot time.
-```
-systemctl start pm2-<currentuser>
-```
+Save and quit your text editor
 
 ## Part 3: Connecting Postgres Database
 
