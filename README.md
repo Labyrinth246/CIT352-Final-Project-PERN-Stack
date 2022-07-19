@@ -9,7 +9,12 @@ Make sure that you have administrator priviledges in your machine. If you do not
 ## Part 1: Installations
 
 ### PostgreSQL Installation/Initial Database Setup
+
+---
+
 Follow these instructions in the command line of your fedora Linux machine:
+
+---
 
 Step 1: Install PostgreSQL Using dnf
 ```
@@ -55,7 +60,12 @@ psql <databaseName>
 
 
 ### Node.js Installation
+
+---
+
 Follow these instructions in the command line of your fedora Linux machine:
+
+---
 
 Step 1: Install Node.js Using dnf
 ```
@@ -75,7 +85,12 @@ systemctl start nodejs
 ## Part 2: Node.js Server Setup
 
 ### Express Installation/Web Server Setup
+
+---
+
 Follow these insctructions in the command line of your Fedora Linux machine to install and set up a basic web server using express:
+
+---
 
 Step 1: Create and Move Into a Directory for your project
 ```
@@ -151,7 +166,12 @@ If this is what you see, congratulations! You have made a simple web server usin
 
 
 ### Setting up your Node.js Server to Start on Boot
+
+---
+
 Follow these insctructions in the command line of your Fedora Linux machine to start your server that you have just created on boot time:
+
+---
 
 Step 1: Install PM2. PM2 is a node.js process manager.
 ```
@@ -186,7 +206,12 @@ systemctl start pm2-<currentuser>
 ## Part 3: Connecting Postgres Database
 
 ### Connecting the Postgresql Database to Our Node.js Server
+
+---
+
 Follow these insctructions in the command line of your Fedora Linux machine to connect our postgres database to our node.js server so that we can access our database in our server:
+
+---
 
 Step 1: In the project directory you created, create a file called database.js. This file will set all the rules that we will use to connect to our database from our server.
 ```
@@ -221,5 +246,12 @@ Congratulations! You have officially connected your database to your node.js ser
 
 
 ### Adding Routes between our Database and Server
+
+---
+
 Follow these insctructions in the command line of your Fedora Linux machine to create routes between your database and node.js server:
+
+---
+
+
 
