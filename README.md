@@ -277,4 +277,4 @@ This is just a small add-on to this turtorial, but there are many other turtoria
 
 ## Video of Fedora Linux Virtual Machine Testing Server Startup
 
-![VMServer browser working](./pictures/VMProjectGIF.gif)
+![VMServer browser working](./pictures/VMProjectWorks.gif)
